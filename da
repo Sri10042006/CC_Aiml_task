@@ -5,7 +5,7 @@
     "colab": {
       "private_outputs": true,
       "provenance": [],
-      "authorship_tag": "ABX9TyO71RcC+GsHKCh19sXfJNkz",
+      "authorship_tag": "ABX9TyPjZ+7/m3rz6zC1UU6x6e9u",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -30,17 +30,17 @@
     {
       "cell_type": "markdown",
       "source": [
-        "1. Convert the dictionary into a Pandas DataFrame.\n"
+        "7. Check whether the dataset contains missing values."
       ],
       "metadata": {
-        "id": "G9BBqgjaZ2jt"
+        "id": "UscragkxgtCT"
       }
     },
     {
       "cell_type": "code",
       "execution_count": null,
       "metadata": {
-        "id": "BEt-asZSZEGe"
+        "id": "Z-VDFP4DgbYi"
       },
       "outputs": [],
       "source": [
@@ -54,26 +54,28 @@
         "         \"Discount\": [5,10,0,15,8,5,10,0,12,5,8,15,0,10,5,12,10,0,8,5], \"Delivery_Days\": [3,5,2,4,7,3,4,2,8,5,3,6,2,4,3,7,2,4,5,6],\n",
         "        \"Sales\": [950,2880,720,1275,6072,3087,3240,800,4400,2850, 3312,2550,1050,4050,3520,5040,1170,4416,3230,4560] }\n",
         "df=pd.DataFrame(data)\n",
-        "print(df)\n",
+        "print(df.isnull())\n",
+        "print(df.isnull().sum())\n",
         "\n"
       ]
     },
     {
       "cell_type": "markdown",
       "source": [
-        "2. Display the first 5 records."
+        "8. Check whether duplicate records exist."
       ],
       "metadata": {
-        "id": "mhRutyTmeoI1"
+        "id": "RJLlX4Jmicci"
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "print(df.head())"
+        "print(df.duplicated())\n",
+        "print(df.duplicated().sum())"
       ],
       "metadata": {
-        "id": "pgbxO6zWd8D9"
+        "id": "ah5bXEj9ih5e"
       },
       "execution_count": null,
       "outputs": []
@@ -81,80 +83,19 @@
     {
       "cell_type": "markdown",
       "source": [
-        "3.Display the last 5 records."
+        "11.Verify that the dataset is clean after preprocessing."
       ],
       "metadata": {
-        "id": "4iACN0VierKL"
+        "id": "GBmEZtYWkVkm"
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "print(df.tail())"
+        "print(df.info())"
       ],
       "metadata": {
-        "id": "FysBUZQmeDPH"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "4.Find the number of rows and columns."
-      ],
-      "metadata": {
-        "id": "Lm9b3bqgez5v"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "print(df.shape)"
-      ],
-      "metadata": {
-        "id": "JLBRFW6vec5r"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "5.Display column names and data types."
-      ],
-      "metadata": {
-        "id": "ePRDaJEve4Rt"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "print(df.dtypes)"
-      ],
-      "metadata": {
-        "id": "ydMY2mojee2P"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "6.. Identify numerical and categorical columns."
-      ],
-      "metadata": {
-        "id": "fcTnSsF6fEgc"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "print(df.select_dtypes(include=\"number\").columns.tolist())\n",
-        "print(df.select_dtypes(include=[\"category\",\"object\"]).columns.tolist())"
-      ],
-      "metadata": {
-        "id": "T-KorOISfODc"
+        "id": "0kTyi4cAkCLs"
       },
       "execution_count": null,
       "outputs": []
